@@ -1,0 +1,247 @@
+*{
+    margin: 0;
+       
+}
+body{
+    width: 100%;
+    width: 100%;
+}
+
+.land {
+    background-image: linear-gradient( 135deg,
+    #00b7d4, #505488, #2f3f80, #161569, #5A4894, #a950a1,#ff7cae
+    );
+    background-size: 500%;
+    width:100%;
+    height: 100%;
+    min-height: 100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:1;
+    display: flex;
+    animation: animacion 10s infinite;
+    transform: scale(1);
+    transition: all .2s ease-in-out;
+    transition-duration: 700ms, 0s;
+    transition-delay: 0s, 1s;   
+  }
+  @keyframes animacion{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+  }
+
+  #titulo{
+    font-size: 45px;
+    font-weight: bold;
+    color: #fff;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+  }
+  
+  .land-hide{
+    transform: scale(0);
+    transition: all .2s ease-in-out;
+    transition-duration: 700ms, 0s;
+    transition-delay: 0s, 1s;  
+  }
+  
+  .land-msg {   
+    align-items: center;
+    min-height: 200px;
+    margin: auto auto;
+  }
+  
+  .memorama-flip{
+    -webkit-transform: rotateY(0deg);  
+            transform: rotateY(0deg);
+    
+    animation-name: memorama-flip;
+    animation-duration: 1200ms;
+    animation-delay: 800ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;    
+    animation-fill-mode: forwards;    
+  }
+  
+  @keyframes memorama-flip {     
+        50% {transform: rotateY(180deg) ;}    
+  } 
+  
+  .memorama{
+    color:#fff;
+    font-size:12vw;
+    font-family:fantasy;
+  }
+  
+  .btn-play{
+    position:absolute;
+    left:35%;
+    top:95%;
+    font-size:2vw;
+    margin: 0 10px 0 0;
+    padding: 15px 45px;  
+    color: #fff;
+    background-color: #6496c8;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px #27496d;
+    outline:none;    
+    visibility:hidden;
+    opacity:0; 
+    animation-name: btn-play-show;
+    animation-duration: 800ms;
+    animation-delay: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;    
+    animation-fill-mode: forwards;  
+  }
+  
+  @keyframes btn-play-show { 
+    100% {    
+           visibility:visible;
+           opacity:1;
+         }
+  }
+  
+  .btn-play:hover,
+  .btn-play.hover {
+    background-color: #41b863
+  }
+  
+  .btn-play:active,
+  .btn-play.active {
+    background-color: #417cb8;
+    box-shadow: 0 5px #27496d;
+    transform: translateY(5px);
+  }
+  
+  .btn-play-again{
+    position:absolute;
+    left:35%;
+    top:60%;
+  }
+  
+  .result-msg{
+    color:orange;
+    font-size:33px;
+    font-family: 'Concert One', cursive;
+  }
+  
+  /* Game*/
+  .flex-container {
+    position: relative;
+    background-color: #ff7caeaa;
+    margin: 2%;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style:none;   
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    grid-auto-rows:auto;
+    justify-content: space-around;
+  }
+  
+  .flex-item {
+    align-items: center;
+    margin-left: 15%;
+    padding: 10px;
+    width: 200px;
+    height: 140px;
+    margin-top: 3.5%;
+    line-height: 150px;
+    font-weight: bold;
+    font-size: 3em;
+    align-items: center;
+  }
+  
+  .card
+  {
+    width:100%;  
+    height: 100%;
+    border-radius: 15%;
+    background-color: #ff7caeaa;
+    position:relative;
+  }
+  .card-front, 
+  .card-back
+  {
+    cursor: pointer;
+    position:absolute;
+    border-radius: 15%;
+    width:100%;  
+    height: 100%;
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+      -webkit-transition: -webkit-transform 300ms;
+      transition: transform 300ms;
+      -webkit-transition-timing-function: linear;
+              transition-timing-function: linear;    
+  }
+  
+  .card-back {
+  -webkit-transform: rotateY(0deg);  
+      transform: rotateY(0deg);
+  }
+  
+  .card-back-flip 
+  {
+      -webkit-transform: rotateY(270deg);
+              transform: rotateY(270deg);
+      scale(-1, 1)
+  }
+  
+  .card-front {    
+      -webkit-transform:rotateY(-270deg);
+              transform:rotateY(-270deg);
+  }
+  
+  
+  .card-front-flip
+  {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+      scale(-1, 1)
+  }
+  
+  .card-front-no
+  {
+    border: 5px solid #fd1532;
+    animation-name: card-front-no;
+    animation-duration:200ms;
+    animation-timing-function: lineal;
+    animation-iteration-count: 15;    
+    animation-fill-mode: forwards;  
+  }
+  
+  @keyframes card-front-no {   
+    0%  { transform: translateX(0px); }    
+    33% { transform: translateX(4px); }  
+    70% { transform: translateX(-7px);}
+    100%{ transform: translateX(3px); }  
+  } 
+  
+  .card-front-yes
+  {
+    border: 5px solid #29ff14;
+    animation-name: card-front-yes;
+    animation-duration: 200ms;
+    animation-timing-function: ease;
+    animation-iteration-count: 5;    
+    animation-fill-mode: forwards;  
+  }
+  
+  @keyframes card-front-yes {     
+    0%  { transform: translateY(0px);}    
+    33% { transform: translateY(3px);}  
+    70% { transform: translateY(-7px);}
+    100%{ transform: translateY(4px);}  
+  } 
