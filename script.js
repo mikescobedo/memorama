@@ -481,8 +481,18 @@ function playAgain() {
   startGame();
 }
 
+function restar(game) {
+  game = this.game
+  this.contador = 0;
+  this.intento = 0
+  startGame();
+  document.getElementById("contador").innerHTML = this.contador
+  document.getElementById("intento").innerHTML = this.intento
+  console.log(this.contador,this.intento)
+}
+
 function endGame(resultGame, score) {
   document.getElementById("result-msg").innerHTML =
-    resultGame+' Los clicks'+'que diste fueron: '+score;
+    resultGame+' Los clicks'+'\r\n'+'que diste fueron: '+score;
   result.classList.toggle("land-hide");
 }

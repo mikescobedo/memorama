@@ -58,7 +58,7 @@ body{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     color:#fff;
     font-size: 2vw;
-    font-weight:700px;
+    font-weight:bold;
   }
 
   #intento{
@@ -66,15 +66,15 @@ body{
     text-align: right;
     color:#fff;
     font-size: 2vw;
-    font-weight:700px;
+    font-weight:bold;
   }
   #intentos{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: right;
     color:#fff;
     font-size: 2vw;
-    font-weight:700px;
-    margin-left: 50%;
+    font-weight:bold;
+    margin-left: 35%;
    
   }
   
@@ -135,6 +135,23 @@ body{
     animation-timing-function: linear;
     animation-iteration-count: 1;    
     animation-fill-mode: forwards;  
+  }
+  .btn-play2{
+    cursor: pointer;
+    margin-left: 10%;
+    font-size:1.5vw;
+    font-weight: 600;
+    margin-top: 0.5%;
+    padding: 5px 10px;  
+    color: #fff;
+    background-color: #cf47c6;
+    border: none;
+    border-radius: 15px; 
+  }
+
+  .btn-play-again2:hover{
+    top:1%;
+    background-color: #64c880;
   }
   
   @keyframes btn-play-show { 
