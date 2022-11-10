@@ -1,5 +1,6 @@
 const NUM_MAX_CARDS = 16; //definimos el numero maximo de cartas
 const NUM_TUPLE = 2; //Cuantos clicks puede dara para encontar la pareja de cartas 
+const aciertos = 0;
 
 //Definimos nuestro arreglo de imagenes para encontar
 const Cards = [
@@ -289,7 +290,7 @@ class Card {
   //Renderizamos  nuestra carta. Tanto la imagen trasera asi como la  frontal
   renderCard(id) {
     const src =
-      "./img/back.jpg"
+      "./img/question2.jpg"
     let cardBack = document.createElement("img");
     cardBack.className = "card-back";
     cardBack.src = src;
@@ -325,6 +326,9 @@ class Game {
     this.resultArray = ["Excelente!", "Puedes mejorar", "Vuelve a intentarlo"];
     this.elCanvas = elCanvas;
     this.shuffleNum = [];
+    this.contador = 0;
+    this.intento = 0;
+    
   }
 
   //Inicializamos el juego
@@ -360,6 +364,8 @@ class Game {
         if (!this.checkTupla()) {
           setTimeout(() => this.coverCards(), 2000);
           this.cardsSay("no", 1200);
+          this.intento++;
+          document.getElementById("intento").innerHTML = this.intento
           setTimeout(() => this.enabledCards(true), 2000);
           setTimeout(() => {
             this.cardsSelected = new Array();
@@ -367,6 +373,9 @@ class Game {
         } else {
           setTimeout(() => this.enabledCards(true), 800);
           this.cardsSay("yes", 600);
+          this.contador++;
+          document.getElementById("contador").innerHTML = this.contador
+        
           setTimeout(() => {
             this.cardsSelected = new Array();
           }, 700);
@@ -380,6 +389,7 @@ class Game {
       }
     }
   }
+
 
   checkTupla() {
     if (this.cardsSelected.length > 0) {
@@ -441,7 +451,7 @@ class Game {
     this.shuffleNum = [];
     for (var i = 0; i < NUM_MAX_CARDS; i++) {
       var num = this.randomNum(1, NUM_MAX_CARDS);
-      console.log(num);
+      //console.log(num);
       if (this.shuffleNum.indexOf(num) >= 0) {
         i = i - 1;
       } else {
@@ -473,6 +483,6 @@ function playAgain() {
 
 function endGame(resultGame, score) {
   document.getElementById("result-msg").innerHTML =
-    resultGame+' tus '+'intentos '+score;
+    resultGame+' Los clicks'+'que diste fueron: '+score;
   result.classList.toggle("land-hide");
 }
